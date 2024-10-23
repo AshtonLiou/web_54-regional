@@ -259,7 +259,7 @@ const addMessageFormSubmit = (e) => {
     let addMessageSerialNumber = addMessageForm["message-serial-number"]
     if (!/.+@.+\..+/.test(addEmail.value)) addEmail.setCustomValidity("E-mail須包含「@」及至少1個「.」")
     if (/[^0-9-]/.test(addTelephone.value)) addTelephone.setCustomValidity("連絡電話只能包含數字及「-」")
-    if (!/^[0-9]{3}[a-z]$/.test(addMessageSerialNumber.value)) addMessageSerialNumber.setCustomValidity("留言序號只能由3位數字及小寫英文字母組成")
+    if (!/^(?=(.*[0-9]){3})(?=(.*[a-z]){1})[0-9a-z]{4}$/.test(addMessageSerialNumber.value)) addMessageSerialNumber.setCustomValidity("留言序號只能由3位數字及小寫英文字母組成")
 
     // Convert file to Base64
 
