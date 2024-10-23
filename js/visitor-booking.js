@@ -138,6 +138,7 @@ const selectRoomNumber = () => {
                     td.id = `Room0${count}`
                     td.onclick = () => selectRoom(td.id, document.getElementById("several-room").value)
                     td.textContent = `Room0${count}`
+                    if (document.getElementById("room-number").value.split(", ").includes(`Room0${count}`)) td.classList.add("selected")
                     if (data.includes(count)) {
                         td.innerHTML += "<br>空房"
                     } else {
@@ -166,6 +167,10 @@ const clearRoomSelection = () => {
 }
 
 const confirmSelectRoom = () => {
-    document.getElementById("room-number").value = [...document.querySelectorAll("#select-room-table td.selected")].map(td => td.id).join(", ")
-    clearRoomSelection()
+    if ([...document.querySelectorAll("#select-room-table td.selected")].length == document.getElementById("several-room").value) {
+        document.getElementById("room-number").value = [...document.querySelectorAll("#select-room-table td.selected")].map(td => td.id).join(", ")
+        clearRoomSelection()
+    } else {
+        alert(`還剩${document.getElementById("several-room").value - [...document.querySelectorAll("#select-room-table td.selected")].length}間房號未選擇`)
+    }
 }
