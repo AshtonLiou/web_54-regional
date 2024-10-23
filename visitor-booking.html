@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快樂旅遊網</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/visitor-booking.css">
+    <script src="./js/main.js"></script>
+    <script src="./js/visitor-booking.js"></script>
+</head>
+
+<body>
+
+    <div id="cursor"></div>
+
+    <!-- header -->
+
+    <header>
+        <a href="./index.html">
+            <h1>快樂<span style="color: mediumaquamarine;">旅遊網</span></h1>
+        </a>
+        <input type="checkbox" id="hamburger-menu" style="display: none;">
+        <label for="hamburger-menu" class="hamburger-menu">|||</label>
+        <nav>
+            <a href="./index.html">首頁</a>
+            <a href="./visitor-message.html">訪客留言</a>
+            <a href="./visitor-booking.html" class="current-page">訪客訂房</a>
+            <a href="./visitor-order.html">訪客訂餐</a>
+            <a href="./website-management.html">網站管理</a>
+        </nav>
+        <div class="hamburger-menu-navbar">
+            <a href="./index.html">首頁</a>
+            <a href="./visitor-message.html">訪客留言</a>
+            <a href="./visitor-booking.html" class="current-page">訪客訂房</a>
+            <a href="./visitor-order.html">訪客訂餐</a>
+            <a href="./website-management.html">網站管理</a>
+        </div>
+    </header>
+
+    <!-- calendar -->
+
+    <main>
+
+        <div class="select-date" style="display: flex; padding: 5vw;">
+
+            <div id="calendar">
+
+                <h2 style="text-align: center; padding: .5em; border-radius: 0 0 50px 50px; background-color: lightgray;">訪客訂房-選擇訂房資訊</h2>
+
+                <div id="calendar-header">
+                    <button class="button-gray" onclick="changeMonth(-1)">前一個月＜＜</button>
+                    <h2 id="currentMonth" style="margin: 0 1rem;"></h2>
+                    <button class="button-gray" onclick="changeMonth(1)">下一個月＞＞</button>
+                </div>
+
+                <table id="calendar-table">
+                    <thead>
+                        <tr>
+                            <th>日</th>
+                            <th>一</th>
+                            <th>二</th>
+                            <th>三</th>
+                            <th>四</th>
+                            <th>五</th>
+                            <th>六</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <form id="booking-form" name="booking-form" onsubmit="submitBookingForm(event)">
+
+                <select id="several-room" name="several-room"
+                    style="width: 100%; text-align: center; height: 3.5rem; margin: auto 0;" required>
+                    <option value="1">1間</option>
+                    <option value="2">2間</option>
+                    <option value="3">3間</option>
+                    <option value="4">4間</option>
+                    <option value="5">5間</option>
+                    <option value="6">6間</option>
+                    <option value="7">7間</option>
+                    <option value="8">8間</option>
+                </select>
+
+                <div class="form-float">
+                    <input type="text" id="day-of-stay" name="day-of-stay" readonly required>
+                    <label for="day-of-stay">入住天數</label>
+                </div>
+
+                <div style="width: 100%; display: flex; justify-content: space-between;">
+                    <div class="form-float" style="width: 47.5%;">
+                        <input type="text" id="check-in-date" name="check-in-date" readonly required>
+                        <label for="check-in-date">入住日期</label>
+                    </div>
+
+                    <div class="form-float" style="width: 47.5%;">
+                        <input type="text" id="check-out-date" name="check-out-date" readonly required>
+                        <label for="check-out-date">到</label>
+                    </div>
+                </div>
+
+                <div class="form-float">
+                    <input type="text" id="room-number" name="room-number" readonly required>
+                    <label for="room-number">房號</label>
+                </div>
+
+                <div style="width: 80%; display: flex; justify-content: space-between;">
+                    <button type="button" id="auto-generate-room-number-button" class="button-gray button-disabled"
+                        style="width: 47.5%;" onclick="autoGenerateRoomNumber()">自動產生房號</button>
+                    <button type="button" id="select-room-number-button" class="button-gray button-disabled"
+                        style="width: 47.5%;" onclick="selectRoomNumber()">選擇房號</button>
+                </div>
+
+                <button type="submit" class="button-green">確定訂房</button>
+                <button type="button" class="button-gray" onclick="clearSelection()">取消</button>
+
+            </form>
+
+        </div>
+
+        <div class="select-room hidden">
+            <h1>選擇房間</h1>
+            <h2 id="select-room-title"></h2>
+            <table id="select-room-table" cellSpacing="10">
+                <tbody></tbody>
+            </table>
+            <div style="width: 100%; display: flex; align-items: center; justify-content: space-around;">
+                <button type="button" class="button-green" style="width: calc(100% / 3 - 1em);" onclick="confirmSelectRoom()">確定選取</button>
+                <button type="button" class="button-gray" style="width: calc(100% / 3 - 1em);"
+                    onclick="document.querySelectorAll('#select-room-table td').forEach(cell => cell.classList.remove('selected'))">取消選取</button>
+                <button type="button" class="button-gray" style="width: calc(100% / 3 - 1em);"
+                    onclick="clearRoomSelection()">放棄離開</button>
+            </div>
+        </div>
+
+        <div class="select-booking-confirm hidden">
+            <form id="confirm-booking-form" name="confirm-booking-form">
+
+                <div class="form-float">
+                    <input type="text" id="confirm-booking-several-room" name="several-room">
+                    <label for="confirm-booking-several-room">訂房間數</label>
+                </div>
+                
+            </form>
+        </div>
+
+    </main>
+
+</body>
+
+</html>

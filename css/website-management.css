@@ -1,0 +1,217 @@
+/* login form */
+
+#login-form {
+    width: max(40vw, 15em);
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #000;
+    border-radius: 20px;
+    padding: 3em;
+    margin: 10em auto 5em auto;
+
+    &>.form-float {
+        width: 100%;
+    }
+
+    & input {
+        margin: .5em 0;
+    }
+
+    &>button {
+        width: 80%;
+    }
+
+    &>h1 {
+        margin-bottom: .5em;
+    }
+}
+
+#captcha-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &>*:not(#captcha-image) {
+        flex: 1 1 auto;
+    }
+
+    &>input {
+        width: 100%;
+    }
+}
+
+#captcha-image {
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin: 0 .5em;
+}
+
+/* post login item */
+
+#logout-button {
+    padding: .5em;
+    background-color: transparent;
+    color: #eee;
+    border: none;
+    font-size: 1.2em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover {
+        background-color: #eee;
+        color: gray;
+    }
+}
+
+/* management section */
+
+#management-section {
+    width: max(60vw, 15em);
+    height: 60vh;
+    margin: 10em auto 5em auto;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 10px;
+    overflow: hidden;
+
+    & nav {
+        position: relative;
+        width: 100%;
+        background-color: lightgray;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        &>button {
+            width: 45%;
+            margin: 1em auto;
+        }
+    }
+
+    &>:not(.visitor-message-list-section):not(.booking-management-section):not(.visitor-message-list-section)>nav {
+        position: relative;
+        width: 100%;
+        background-color: lightgray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &>h1 {
+            margin: 1em;
+            font-size: 1.4em;
+        }
+
+        &>button {
+            position: absolute;
+            right: 1em;
+            border-radius: 20px 10px;
+        }
+    }
+}
+
+
+/* message list */
+
+.visitor-message-list-section {
+    
+    &>#visitor-message-list-container {
+        width: 100%;
+        height: calc(60vh - 74.792px);
+        overflow: auto;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: lightgray;
+    }
+
+    & table {
+        width: 90%;
+        margin: 5em auto;
+        border-radius: 5px;
+        border-style: solid;
+        border-width: 2px 4px 2px 4px;
+        border-color: var(--table-color);
+        table-layout: fixed;
+
+        tr {
+            &:nth-of-type(odd) {
+                background-color: #eee;
+            }
+
+            &:first-of-type>:last-child {
+                width: 10em;
+                border-style: solid hidden solid solid;
+                background-color: #fff;
+                text-align: center;
+
+                & button {
+                    margin: .5em .1rem;
+                }
+            }
+        }
+
+        & td {
+            border-style: solid solid solid hidden;
+            border-color: var(--table-color);
+            padding: 1em;
+            word-wrap: break-word;
+
+            &:has(h2) {
+                background-color: var(--table-color);
+                color: #eee;
+                text-align: center;
+                padding-bottom: .5em;
+
+                & img {
+                    margin-bottom: .5em;
+                }
+            }
+        }
+
+        & img {
+            width: 300px;
+            margin: auto;
+            box-shadow: 0 0 0 5px #fff;
+            border-radius: 5px;
+        }
+    }
+}
+
+.visitor-message-edit-section>nav button {
+    width: auto !important;
+}
+
+#add-message-form,
+#edit-message-form {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    padding: 3em;
+
+    &>.form-float:has(textarea) {
+        grid-column: 2;
+
+        &>textarea {
+            resize: none;
+        }
+    }
+}
+
+#add-message-form {
+    &>.form-float:has(textarea) {
+        grid-row: 1 / span 5;
+    }
+}
+
+#edit-message-form {
+    &>.form-float:has(textarea) {
+        grid-row: 1 / span 3;
+    }
+}

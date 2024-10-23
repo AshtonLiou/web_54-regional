@@ -1,0 +1,97 @@
+#calendar {
+    width: 60%;
+    border: 2px solid gray;
+    border-radius: 5px;
+    box-shadow: 0 .3rem .6rem rgba(0, 0, 0, .1);
+}
+
+#calendar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calendar-table {
+    width: 100%;
+
+    &>thead>tr {
+        background-color: gray;
+        color: #fff;
+
+        & th {
+            height: 2em;
+        }
+    }
+
+    & td {
+        height: 5em;
+        background-color: rgb(230, 230, 230);
+        text-align: center;
+        user-select: none;
+        cursor: pointer;
+    }
+}
+
+.empty {
+    background-color: lightgray !important;
+}
+
+.selected {
+    background-color: lightyellow !important;
+}
+
+#booking-form {
+    width: 35%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid #000;
+    border-radius: 20px;
+    padding: 3em;
+    margin-left: auto;
+
+    & .form-float {
+        width: 100%;
+    }
+
+    & input {
+        margin: .5em 0;
+    }
+
+    &>button {
+        width: 80%;
+    }
+}
+
+.select-room,
+.select-booking-confirm {
+    width: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid #000;
+    border-radius: 20px;
+    padding: 3em;
+    margin: 5em auto;
+}
+
+#select-room-table {
+    width: 100%;
+    margin: 1em 0;
+
+    & td {
+        height: 5em;
+        background-color: rgb(230, 230, 230);
+        border: 1px solid #000;
+        text-align: center;
+        user-select: none;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+}

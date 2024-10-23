@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快樂旅遊網</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/visitor-order.css">
+    <script src="./js/main.js"></script>
+    <script src="./js/visitor-order.js"></script>
+</head>
+
+<body>
+
+    <div id="cursor"></div>
+
+    <!-- header -->
+
+    <header>
+        <a href="./index.html">
+            <h1>快樂<span style="color: mediumaquamarine;">旅遊網</span></h1>
+        </a>
+        <input type="checkbox" id="hamburger-menu" style="display: none;">
+        <label for="hamburger-menu" class="hamburger-menu">|||</label>
+        <nav>
+            <a href="./index.html">首頁</a>
+            <a href="./visitor-message.html">訪客留言</a>
+            <a href="./visitor-booking.html">訪客訂房</a>
+            <a href="./visitor-order.html" class="current-page">訪客訂餐</a>
+            <a href="./website-management.html">網站管理</a>
+        </nav>
+        <div class="hamburger-menu-navbar">
+            <a href="./index.html">首頁</a>
+            <a href="./visitor-message.html">訪客留言</a>
+            <a href="./visitor-booking.html">訪客訂房</a>
+            <a href="./visitor-order.html" class="current-page">訪客訂餐</a>
+            <a href="./website-management.html">網站管理</a>
+        </div>
+    </header>
+
+    <!-- visitor order -->
+
+    <main>
+
+        <h1 style="margin: 2em 0 1em 0;">訪客訂餐</h1>
+
+        <!-- food image -->
+        
+        <section class="visitor-order-section">
+
+            <img src="./img/img1.jpg" alt="This is a food image" onclick="clickImage(this.src)">
+            <img src="./img/img2.jpg" alt="This is a food image" onclick="clickImage(this.src)">
+            <img src="./img/img3.jpg" alt="This is a food image" onclick="clickImage(this.src)">
+            <img src="./img/img4.jpg" alt="This is a food image" onclick="clickImage(this.src)">
+            <img src="./img/img100.jpg" alt="This is a food image" onclick="clickImage(this.src)">
+            <img src="./img/img101.png" alt="This is a food image" onclick="clickImage(this.src)">
+            <img src="./img/img102.jpg" alt="This is a food image" onclick="clickImage(this.src)">
+            <img src="./img/img104.jpg" alt="This is a food image" onclick="clickImage(this.src)">
+
+        </section>
+
+        <!-- food image modal -->
+
+        <div class="modal">
+            <div class="modal-box">
+                <button class="button-red" onclick="closeModal()">Ｘ</button>
+                <img src="./img/img1.jpg" class="modal-image" alt="This is a food image">
+                <div>
+                    <button class="button-gray" onclick="reduceImageOpacity()">＜</button>
+                    <button class="button-gray" onclick="replyImageOpacity()">Ｏ</button>
+                    <button class="button-gray" onclick="increaseImageOpacity()">＞</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>

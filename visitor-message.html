@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快樂旅遊網</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/visitor-message.css">
+    <script src="./js/main.js"></script>
+    <script src="./js/visitor-message.js"></script>
+</head>
+
+<body>
+
+    <div id="cursor"></div>
+
+    <!-- header -->
+
+    <header>
+        <a href="./index.html">
+            <h1>快樂<span style="color: mediumaquamarine;">旅遊網</span></h1>
+        </a>
+        <input type="checkbox" id="hamburger-menu" style="display: none;">
+        <label for="hamburger-menu" class="hamburger-menu">|||</label>
+        <nav>
+            <a href="./index.html">首頁</a>
+            <a href="./visitor-message.html" class="current-page">訪客留言</a>
+            <a href="./visitor-booking.html">訪客訂房</a>
+            <a href="./visitor-order.html">訪客訂餐</a>
+            <a href="./website-management.html">網站管理</a>
+        </nav>
+        <div class="hamburger-menu-navbar">
+            <a href="./index.html">首頁</a>
+            <a href="./visitor-message.html" class="current-page">訪客留言</a>
+            <a href="./visitor-booking.html">訪客訂房</a>
+            <a href="./visitor-order.html">訪客訂餐</a>
+            <a href="./website-management.html">網站管理</a>
+        </div>
+    </header>
+
+    <!-- visitor message container -->
+
+    <main id="visitor-message-container">
+
+        <!-- visitor message list section -->
+
+        <section class="visitor-message-list-section">
+
+            <nav>
+                <h1>訪客留言列表</h1>
+                <button class="button-gray"
+                    onclick="toggleDisplay('.visitor-message-list-section, .visitor-message-edit-section', '.visitor-message-add-section')">新增留言</button>
+            </nav>
+
+            <div id="visitor-message-list-container"></div>
+
+        </section>
+
+        <!-- visitor message add section -->
+
+        <section class="visitor-message-add-section hidden">
+
+            <nav>
+                <h1>訪客留言-新增</h1>
+                <button class="button-gray"
+                    onclick="toggleDisplay('.visitor-message-add-section, .visitor-message-edit-section', '.visitor-message-list-section')">回留言列表</button>
+            </nav>
+
+            <form id="add-message-form" name="add-message-form" onsubmit="addMessageFormSubmit(event)">
+
+                <div class="form-float">
+                    <input type="text" id="add-message-form-name" name="name" placeholder=" " required>
+                    <label for="add-message-form-name">姓名</label>
+                </div>
+
+                <div class="form-float">
+                    <input type="email" id="add-message-form-email" name="email" placeholder=" " required
+                        oninput="this.setCustomValidity('')">
+                    <label for="add-message-form-email">E-mail</label>
+                </div>
+
+                <div class="form-float">
+                    <input type="tel" id="add-message-form-telephone" name="telephone" placeholder=" " required
+                        oninput="this.setCustomValidity('')">
+                    <label for="add-message-form-telephone">電話</label>
+                </div>
+
+                <div class="form-float">
+                    <input type="text" id="add-message-form-message-serial-number" name="message-serial-number"
+                        maxlength="4" placeholder=" " required oninput="this.setCustomValidity('')">
+                    <label for="add-message-form-message-serial-number">留言序號</label>
+                </div>
+
+                <div class="form-float">
+                    <textarea id="add-message-form-content" name="content" placeholder=" " required></textarea>
+                    <label for="add-message-form-content">內容</label>
+                </div>
+                <div class="form-float">
+                    <input type="file" name="image" accept="image/*" required>
+                </div>
+                <button type="reset" class="button-gray">重設</button>
+                <button type="submit" class="button-green">送出</button>
+
+            </form>
+
+        </section>
+
+        <!-- visitor message edit section -->
+
+        <section class="visitor-message-edit-section hidden">
+
+            <nav>
+                <h1>訪客留言-編輯</h1>
+                <button class="button-gray"
+                    onclick="toggleDisplay('.visitor-message-add-section, .visitor-message-edit-section', '.visitor-message-list-section')">回留言列表</button>
+            </nav>
+
+            <form id="edit-message-form" name="edit-message-form">
+
+                <div class="form-float">
+                    <input type="text" id="edit-name" name="name" placeholder=" " required>
+                    <label for="edit-name">姓名</label>
+                </div>
+
+                <div>
+                    <div class="form-float" style="display: inline-block; width: calc(100% - 4em);">
+                        <input type="email" name="email" id="edit-email" placeholder=" " required
+                            oninput="this.setCustomValidity('')">
+                        <label for="edit-email">E-mail</label>
+                    </div>
+                    <input type="checkbox" id="edit-show-email" name="showEmail"
+                        style="margin-left: .5rem; transform: scale(1.3); cursor: pointer;">
+                    <label for="edit-show-email" style="user-select: none; cursor: pointer;">顯示</label>
+                </div>
+
+                <div>
+                    <div class="form-float" style="display: inline-block; width: calc(100% - 4em);">
+                        <input type="tel" name="telephone" id="edit-telephone" placeholder=" " required
+                            oninput="this.setCustomValidity('')">
+                        <label for="edit-telephone">電話</label>
+                    </div>
+                    <input type="checkbox" id="edit-show-telephone" name="showTelephone"
+                        style="margin-left: .5rem; transform: scale(1.3); cursor: pointer;">
+                    <label for="edit-show-telephone" style="user-select: none; cursor: pointer;">顯示</label>
+                </div>
+
+                <div class="form-float">
+                    <textarea id="edit-content" name="content" placeholder=" " required></textarea>
+                    <label for="edit-content">內容</label>
+                </div>
+
+                <button type="reset" name="editMessageFormReset" class="button-gray">重設</button>
+                <button type="submit" class="button-green">送出</button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
