@@ -70,7 +70,7 @@ const selectDate = (id) => {
         document.getElementById(id).classList.add("selected")
         document.getElementById("check-in-date").value = `${currentYear}-${(currentMonth + 1).toString().padStart(2, "0")}-${selectId.toString().padStart(2, "0")}星期${dayName}`
         document.getElementById("check-out-date").value = `${currentYear}-${(currentMonth + 1).toString().padStart(2, "0")}-${selectId.toString().padStart(2, "0")}星期${dayName}`
-        document.getElementById("day-of-stay").value = "1"
+        document.getElementById("day-of-stay").value = "1天"
         document.getElementById("auto-generate-room-number-button").classList.remove("button-disabled")
         document.getElementById("select-room-number-button").classList.remove("button-disabled")
         autoGenerateRoomNumber()
@@ -110,6 +110,24 @@ const submitBookingForm = (e) => {
 
     if (document.getElementById("day-of-stay").value == "") return alert("請先選取要預定的日期")
     if (document.getElementById("room-number").value.split(", ").length != document.getElementById("several-room").value) return alert("請選擇房號")
+
+    let severalRoom = document.forms["booking-form"]["several-room"].value
+    let dayOfStay = document.forms["booking-form"]["day-of-stay"].value
+    let lumpSum = 5000
+
+    // if (severalRoom == 1 && dayOfStay.slice(0, -1) != 1) {
+    //     lumpSum *=
+    // }
+    // lumpSum = 5000 * (Number() + Number(dayOfStay.slice(0, -1)))
+
+    document.forms["confirm-booking-form"]["several-room"].value = `${severalRoom}間`
+    document.forms["confirm-booking-form"]["room-number"].value = document.forms["booking-form"]["room-number"].value
+    document.forms["confirm-booking-form"]["day-of-stay"].value = dayOfStay
+    document.forms["confirm-booking-form"]["check-in-date"].value = document.forms["booking-form"]["check-in-date"].value
+    document.forms["confirm-booking-form"]["check-out-date"].value = document.forms["booking-form"]["check-out-date"].value
+    document.forms["confirm-booking-form"]["lump-sum"].value = `$${lumpSum}元`
+    document.forms["confirm-booking-form"]["deposit"].value = `$${lumpSum * 0.3}元(總金額之30%)`
+
     toggleDisplay(".select-date", ".confirm-booking-form")
 }
 
