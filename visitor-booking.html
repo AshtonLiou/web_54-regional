@@ -47,7 +47,9 @@
 
             <div id="calendar">
 
-                <h2 style="text-align: center; padding: .5em; border-radius: 0 0 50px 50px; background-color: lightgray;">訪客訂房-選擇訂房資訊</h2>
+                <h2
+                    style="text-align: center; padding: .5em; border-radius: 0 0 50px 50px; background-color: lightgray;">
+                    訪客訂房-選擇訂房資訊</h2>
 
                 <div id="calendar-header">
                     <button class="button-gray" onclick="changeMonth(-1)">前一個月＜＜</button>
@@ -130,7 +132,8 @@
                 <tbody></tbody>
             </table>
             <div style="width: 100%; display: flex; align-items: center; justify-content: space-around;">
-                <button type="button" class="button-green" style="width: calc(100% / 3 - 1em);" onclick="confirmSelectRoom()">確定選取</button>
+                <button type="button" class="button-green" style="width: calc(100% / 3 - 1em);"
+                    onclick="confirmSelectRoom()">確定選取</button>
                 <button type="button" class="button-gray" style="width: calc(100% / 3 - 1em);"
                     onclick="document.querySelectorAll('#select-room-table td').forEach(cell => cell.classList.remove('selected'))">取消選取</button>
                 <button type="button" class="button-gray" style="width: calc(100% / 3 - 1em);"
@@ -142,9 +145,42 @@
             <form id="confirm-booking-form" name="confirm-booking-form">
 
                 <div class="form-float">
-                    <input type="text" id="confirm-booking-several-room" name="several-room">
+                    <input type="text" id="confirm-booking-several-room" name="several-room" readonly>
                     <label for="confirm-booking-several-room">訂房間數</label>
                 </div>
+
+                <div class="form-float">
+                    <input type="text" id="confirm-booking-room-number" name="room-number" readonly>
+                    <label for="confirm-booking-room-number">房號</label>
+                </div>
+
+                <div class="form-float">
+                    <input type="text" id="confirm-booking-day-of-stay" name="day-of-stay" readonly>
+                    <label for="confirm-booking-day-of-stay">入住天數</label>
+                </div>
+
+                <div class="form-float">
+                    <input type="text" id="confirm-booking-check-in-date" name="check-in-date" readonly>
+                    <label for="confirm-booking-check-in-date">入住日期</label>
+                </div>
+
+                <div class="form-float">
+                    <input type="text" id="confirm-booking-check-out-date" name="check-out-date" readonly>
+                    <label for="confirm-booking-check-out-date">到</label>
+                </div>
+
+                <div class="form-float">
+                    <input type="text" id="confirm-booking-lump-sum" name="lump-sum" readonly>
+                    <label for="confirm-booking-lump-sum">總金額</label>
+                </div>
+
+                <div class="form-float">
+                    <input type="text" id="confirm-booking-deposit" name="deposit" readonly>
+                    <label for="confirm-booking-deposit">需付討金</label>
+                </div>
+
+                <button type="submit" class="button-green">確定訂房</button>
+                <button type="button" class="button-gray" onclick="toggleDisplay('.select-booking-confirm', '.select-date')">取消</button>
                 
             </form>
         </div>
