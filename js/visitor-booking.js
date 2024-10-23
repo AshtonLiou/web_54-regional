@@ -110,7 +110,7 @@ const submitBookingForm = (e) => {
 
     if (document.getElementById("day-of-stay").value == "") return alert("請先選取要預定的日期")
     if (document.getElementById("room-number").value.split(", ").length != document.getElementById("several-room").value) return alert("請選擇房號")
-    toggleDisplay(".select-date", ".select-booking-confirm")
+    toggleDisplay(".select-date", ".confirm-booking-form")
 }
 
 const autoGenerateRoomNumber = () => {

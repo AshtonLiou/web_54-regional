@@ -67,7 +67,7 @@
 }
 
 .select-room,
-.select-booking-confirm {
+.confirm-booking-form {
     width: 50%;
     background-color: #fff;
     display: flex;
@@ -79,6 +79,20 @@
     border-radius: 20px;
     padding: 3em;
     margin: 5em auto;
+}
+
+.confirm-booking-form {
+    & .form-float {
+        width: 100%;
+    }
+
+    & input {
+        margin: .5em 0;
+    }
+
+    &>button {
+        width: 80%;
+    }
 }
 
 #select-room-table {
