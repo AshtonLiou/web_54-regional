@@ -111,14 +111,15 @@ const submitBookingForm = (e) => {
     if (document.getElementById("day-of-stay").value == "") return alert("請先選取要預定的日期")
     if (document.getElementById("room-number").value.split(", ").length != document.getElementById("several-room").value) return alert("請選擇房號")
 
+    let lumpSum = 5000
     let severalRoom = document.forms["booking-form"]["several-room"].value
     let dayOfStay = document.forms["booking-form"]["day-of-stay"].value
-    let lumpSum = 5000
 
-    // if (severalRoom == 1 && dayOfStay.slice(0, -1) != 1) {
-    //     lumpSum *=
-    // }
-    // lumpSum = 5000 * (Number() + Number(dayOfStay.slice(0, -1)))
+    if (severalRoom == 1 || dayOfStay.slice(0, -1) == 1) {
+        lumpSum *= Math.max(severalRoom, dayOfStay.slice(0, -1))
+    } else {
+        lumpSum *= Number(severalRoom) + Number(dayOfStay.slice(0, -1))
+    }
 
     document.forms["confirm-booking-form"]["several-room"].value = `${severalRoom}間`
     document.forms["confirm-booking-form"]["room-number"].value = document.forms["booking-form"]["room-number"].value
