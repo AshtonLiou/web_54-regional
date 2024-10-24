@@ -194,3 +194,9 @@ const confirmSelectRoom = () => {
         alert(`還剩${document.getElementById("several-room").value - [...document.querySelectorAll("#select-room-table td.selected")].length}間房號未選擇`)
     }
 }
+
+const confirmBookingSubmit = (e) => {
+    e.preventDefault()
+
+    toggleDisplay(".confirm-booking-form", ".contact-information-form")
+}

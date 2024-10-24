@@ -141,9 +141,9 @@
             </div>
         </div>
 
-        <form class="confirm-booking-form hidden" name="confirm-booking-form">
+        <form class="confirm-booking-form hidden" name="confirm-booking-form" onsubmit="confirmBookingSubmit(event)">
 
-            <h2 style="margin-bottom: 1em;">訪客訂房-以選擇的訂房資訊再確認</h2>
+            <h2 style="margin-bottom: 1em;">訪客訂房-已選擇的訂房資訊再確認</h2>
 
             <div class="form-float">
                 <input type="text" id="confirm-booking-several-room" name="several-room" readonly>
@@ -186,6 +186,35 @@
             <button type="button" class="button-gray"
                 onclick="toggleDisplay('.confirm-booking-form', '.select-date')">取消</button>
 
+        </form>
+
+        <form class="contact-information-form hidden" name="contact-information-form" onsubmit="contactInformationSubmit(event)">
+
+            <h2 style="margin-bottom: 1em;">訪客訂房-填寫聯絡方式</h2>
+
+            <div class="form-float">
+                <input type="text" id="contact-information-name" name="contact-information-name" placeholder=" " required>
+                <label for="contact-information-name">姓名</label>
+            </div>
+
+            <div class="form-float">
+                <input type="text" id="contact-information-email" name="contact-information-email" placeholder=" " required>
+                <label for="contact-information-email">E-mail</label>
+            </div>
+
+            <div class="form-float">
+                <input type="text" id="contact-information-telephone" name="contact-information-telephone" placeholder=" " required>
+                <label for="contact-information-telephone">電話</label>
+            </div>
+
+            <div class="form-float" style="margin: .5em 0;">
+                <textarea name="contact-information-remark" id="contact-information-remark" placeholder=" " required></textarea>
+                <label for="contact-information-remark">備註</label>
+            </div>
+
+            <button type="submit" class="button-green">送出</button>
+            <button type="reset" class="button-gray">重設</button>
+            
         </form>
 
     </main>
