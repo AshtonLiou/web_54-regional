@@ -45,10 +45,7 @@ switch ($_GET["mode"]) {
         $result = executeQuery($conn, "SELECT `room` FROM `booking-date`
                                        WHERE `date` = ?",
                                        [$_GET["date"]]);
-        echo json_encode(array_diff(range(1, 8), $result));
-        break;
-
-    case "getReservationSequenceNumberForTheDay":
-        $result = executeQuery($conn, "SELECT `room` FROM `booking-date`");
+        $lastChars = array_map(fn($room) => substr($room, -1), array_column($result, "room"));
+        echo json_encode(array_values(array_diff(range(1, 8), $lastChars)));
         break;
 }

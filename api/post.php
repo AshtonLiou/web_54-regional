@@ -90,6 +90,8 @@ switch ($_POST["mode"]) {
         break;
 
     case "addBookingDate":
-        
+        executeChange($conn, "INSERT INTO `booking-date`(`date`, `room`, `booking-serial-number`)
+                              VALUES (?, ?, ?)",
+                              [$_POST["date"], $_POST["room"], $_POST["booking-serial-number"]]);
         break;
 }

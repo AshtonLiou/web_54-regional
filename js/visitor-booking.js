@@ -28,7 +28,7 @@ const generateCalendar = (year, month) => {
                 fetch(`./api/get.php?mode=getBookingDayData&date=${currentYear}-${(currentMonth + 1).toString().padStart(2, "0")}-${date.toString().padStart(2, "0")}星期${["日", "一", "二", "三", "四", "五", "六"][new Date(currentYear, currentMonth, date).getDay()]}`)
                     .then(r => r.json())
                     .then(data => {
-                        cell.innerHTML += `<br>${data.slice(-1)}間`
+                        cell.innerHTML += `<br>${data.length}間`
                     })
                 cell.id = date++
                 cell.onclick = () => selectDate(cell.id)
@@ -139,7 +139,9 @@ const autoGenerateRoomNumber = () => {
         .then(data => {
             let roomArray = []
             for (let i = 1; i <= document.getElementById("several-room").value; i++) {
-                if (`Room0${data.includes(i)}`) roomArray.push(`Room0${i}`)
+                console.log(data.includes(i))
+                if (data.includes(i)) roomArray.push(`Room0${i}`)
+                // 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 10/24 
             }
             document.getElementById("room-number").value = roomArray.join(", ")
         })
@@ -234,8 +236,15 @@ const contactInformationSubmit = (e) => {
                 formData3.append("mode", "addBookingDate")
                 formData3.append("date", `${currentYear}-${(currentMonth + 1).toString().padStart(2, "0")}-${date.toString().padStart(2, "0")}星期${["日", "一", "二", "三", "四", "五", "六"][new Date(currentYear, currentMonth, date).getDay()]}`)
                 formData3.append("room", room)
-                fetch("./api/get.php?mode=")
-                console.log([...formData3])
+                fetch(`./api/get.php?mode=getBookingDayData&date=${currentYear}-${(currentMonth + 1).toString().padStart(2, "0")}-${date.toString().padStart(2, "0")}星期${["日", "一", "二", "三", "四", "五", "六"][new Date(currentYear, currentMonth, date).getDay()]}`)
+                    .then(r => r.json())
+                    .then(data => {
+                        formData3.append("booking-serial-number", currentYear.toString() + (currentMonth + 1).toString().padStart(2, "0") + date.toString().padStart(2, "0") + (9 - data.length).toString().padStart(4, "0"))
+                        fetch("./api/post.php", {
+                            method: "POST",
+                            body: formData3
+                        })
+                    })
 
 
 
