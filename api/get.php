@@ -37,12 +37,12 @@ switch ($_GET["mode"]) {
         break;
 
     case "getBookingData":
-        $result = executeQuery($conn, "SELECT * FROM `booking`");
+        $result = executeQuery($conn, "SELECT * FROM `booking-date`");
         echo json_encode($result);
         break;
 
     case "getBookingDayData":
-        $result = executeQuery($conn, "SELECT `room` FROM `booking`
+        $result = executeQuery($conn, "SELECT `room` FROM `booking-date`
                                        WHERE `date` = ?",
                                        [$_GET["date"]]);
         echo json_encode(array_diff(range(1, 8), $result));
