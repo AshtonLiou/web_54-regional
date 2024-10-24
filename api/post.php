@@ -70,4 +70,13 @@ switch ($_POST["mode"]) {
                               WHERE `id` = ?",
                               [$_POST["reply"], $_POST["id"]]);
         break;
+
+    case "addBookingForm":
+        // executeChange($conn, "INSERT INTO `booking-date`(`date`, `room`, `booking-serial-number`)
+        //                       VALUES (?, ?, ?)",
+        //                       [$_POST[""], $_POST[""], $_POST[""]]);
+        executeChange($conn, "INSERT INTO `booking-information`(`check-in-date`, `check-out-date`, `several-room`, `name`, `telephone`, `email`, `remark`, `lump-sum`, `deposit`)
+                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                              [$_POST["check-in-date"], $_POST["check-out-date"], $_POST["several-room"], $_POST["name"], $_POST["telephone"], $_POST["email"], $_POST["remark"], $_POST["lump-sum"], $_POST["deposit"]]);
+        break;
 }

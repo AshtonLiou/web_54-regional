@@ -200,3 +200,20 @@ const confirmBookingSubmit = (e) => {
 
     toggleDisplay(".confirm-booking-form", ".contact-information-form")
 }
+
+const contactInformationSubmit = (e) => {
+    e.preventDefault()
+
+    if (document.forms["contact-information-form"].checkValidity()) {
+        let formData1 = new FormData(document.forms["contact-information-form"])
+        let formData2 = new FormData(document.forms["confirm-booking-form"])
+        formData2.forEach((value, key) => {
+            formData1.append(key, value)
+        })
+        formData1.append("mode", "addBookingForm")
+        fetch("./api/post.php", {
+            method: "POST",
+            body: formData1
+        })
+    }
+}
