@@ -211,11 +211,45 @@ const contactInformationSubmit = (e) => {
             formData1.append(key, value)
         })
         formData1.append("mode", "addBookingForm")
-        console.log([...document.querySelectorAll("#calendar-table td.selected")].map(td => td.id))
-        console.log([...formData1])
-        // fetch("./api/post.php", {
-        //     method: "POST",
-        //     body: formData1
+        fetch("./api/post.php", {
+            method: "POST",
+            body: formData1
+        })
+        // let selectedId = [...document.querySelectorAll("#calendar-table td.selected")].map(td => td.id)
+        // let selectedArray = []
+        // let bookingSerialNumberArray = []
+        // selectedId.forEach(date => {
+        //     selectedArray.push(`${currentYear}-${(currentMonth + 1).toString().padStart(2, "0")}-${date.toString().padStart(2, "0")}星期${["日", "一", "二", "三", "四", "五", "六"][new Date(currentYear, currentMonth, date).getDay()]}`)
+        //     fetch(`./api/get.php?mode=getBookingDayData&date=${selectedArray.at(-1)}`)
+        //         .then(r => r.json())
+        //         .then(data => bookingSerialNumberArray.push(`${currentYear}${(currentMonth + 1).toString().padStart(2, "0")}${date.toString().padStart(2, "0")}${(9 - data.length).toString().padStart(4, "0")}`))
         // })
+        // console.log(bookingSerialNumberArray)
+        // console.log(selectedArray)
+        let selectedId = [...document.querySelectorAll("#calendar-table td.selected")].map(td => td.id)
+        let roomNumberArray = document.getElementById("room-number").value.split(", ")
+        roomNumberArray.forEach(room => {
+            selectedId.forEach(date => {
+                let formData3 = new FormData()
+                formData3.append("mode", "addBookingDate")
+                formData3.append("date", `${currentYear}-${(currentMonth + 1).toString().padStart(2, "0")}-${date.toString().padStart(2, "0")}星期${["日", "一", "二", "三", "四", "五", "六"][new Date(currentYear, currentMonth, date).getDay()]}`)
+                formData3.append("room", room)
+                fetch("./api/get.php?mode=")
+                console.log([...formData3])
+
+
+
+                // fetch(`./api/get.php?mode=getBookingDayData&date=${selectedArray.at(-1)}`)
+                //     .then(r => r.json())
+                //     .then(data => {
+
+                //         formData3.append("booking-serial-number", `${currentYear}${(currentMonth + 1).toString().padStart(2, "0")}${date.toString().padStart(2, "0")}${(9 - data.length).toString().padStart(4, "0")}`)
+                //         console.log(formData3)
+                //         fetch("./api/post.php", {
+
+                //         })
+                //     })
+            })
+        })
     }
 }

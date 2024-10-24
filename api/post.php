@@ -77,8 +77,19 @@ switch ($_POST["mode"]) {
         //                           VALUES (?, ?, ?)",
         //                           [$_POST[""], $_POST["room-number"][$i], $_POST[""]]);
         // }
+        // for ($i = 0; $i < count($_POST["date"]); $i++) {
+        //     for ($j = 0; $j < count($_POST["room"]); $j++) {
+        //         executeChange($conn, "INSERT INTO `booking-date`(`date`, `room`, `booking-serial-number`)
+        //                               VALUES (?, ?, ?)",
+        //                               [$_POST["date"][$i], $_POST["room"][$j], $_POST[""]]);
+        //     }
+        // }
         executeChange($conn, "INSERT INTO `booking-information`(`check-in-date`, `check-out-date`, `several-room`, `name`, `telephone`, `email`, `remark`, `lump-sum`, `deposit`)
                               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
                               [$_POST["check-in-date"], $_POST["check-out-date"], $_POST["several-room"], $_POST["name"], $_POST["telephone"], $_POST["email"], $_POST["remark"], $_POST["lump-sum"], $_POST["deposit"]]);
+        break;
+
+    case "addBookingDate":
+        
         break;
 }
