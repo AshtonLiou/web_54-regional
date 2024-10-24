@@ -211,9 +211,11 @@ const contactInformationSubmit = (e) => {
             formData1.append(key, value)
         })
         formData1.append("mode", "addBookingForm")
-        fetch("./api/post.php", {
-            method: "POST",
-            body: formData1
-        })
+        console.log([...document.querySelectorAll("#calendar-table td.selected")].map(td => td.id))
+        console.log([...formData1])
+        // fetch("./api/post.php", {
+        //     method: "POST",
+        //     body: formData1
+        // })
     }
 }
