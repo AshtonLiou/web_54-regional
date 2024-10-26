@@ -108,11 +108,96 @@ header {
 }
 
 .title-banner {
-    top: 1em;
     width: 80vw !important;
     height: auto;
+    margin-top: 1em;
     padding: 1em;
     border-radius: 10px;
     color: #fff;
     background-color: rgba(0, 0, 0, .4);
+}
+
+main {
+    width: 80vw;
+    margin: 1em auto;
+    padding: 5em .5em;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .3);
+}
+
+form {
+    display: grid;
+    gap: 1em;
+    width: max(40vw, 15em);
+    margin: auto;
+    padding: 3em;
+    border-radius: 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.form-float {
+    position: relative;
+
+    &>input,
+    &>textarea {
+        width: 100%;
+        padding: 1.7rem 1rem .5rem 1rem;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        outline: none;
+        transition: .2s;
+
+        &~label {
+            position: absolute;
+            left: 0;
+            font-size: 1.25rem;
+            color: #000;
+            transform-origin: 0 0;
+            transition: all .2s;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        &:focus {
+            border: 1px solid #aaa;
+            box-shadow: 0 .3rem .6rem rgba(0, 0, 0, .05);
+        }
+
+        &:focus~label,
+        &:not(:placeholder-shown)~label {
+            font-size: 1em;
+            opacity: .5;
+        }
+    }
+
+    &>input {
+        height: 3.5rem;
+
+        &~label {
+            top: 50%;
+            color: #000;
+            transform: translate(1rem, -50%);
+        }
+
+        &:focus~label,
+        &:not(:placeholder-shown)~label {
+            transform: translate(1rem, calc(-50% - .8rem));
+        }
+    }
+
+    &>textarea {
+        height: 100%;
+
+        &~label {
+            top: 0;
+            padding: .9rem 1rem;
+            color: #000;
+        }
+
+        &:focus~label,
+        &:not(:placeholder-shown)~label {
+            padding: .3rem 1rem;
+        }
+    }
 }

@@ -7,6 +7,7 @@
     <title>快樂旅遊網</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/main.js"></script>
+    <script src="./js/website-management.js"></script>
 </head>
 
 <body>
@@ -32,6 +33,27 @@
     <header class="title-banner">
         <h1>網站管理</h1>
     </header>
+    <main>
+        <form>
+            <h1>登入</h1>
+            <div class="form-float">
+                <input type="text" name="acc" placeholder=" " required>
+                <label>帳號</label>
+            </div>
+            <div class="form-float">
+                <input type="password" name="pw" placeholder=" " required>
+                <label>密碼</label>
+            </div>
+            <div>
+                <div class="form-float">
+                    <input type="text" name="captcha" placeholder=" " required>
+                    <label>圖片驗證碼</label>
+                </div>
+                <img src="./img/captcha-image.png" alt="" id="ci">
+                <button type="button" onclick="reGenerate()">驗證碼重新產生</button>
+            </div>
+        </form>
+    </main>
 </body>
 
 </html>
