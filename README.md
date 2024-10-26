@@ -4,6 +4,6 @@
 
 ```javascript
 
-// Syntax: tgd(hideElement, showElement)
-// full name: toggleDisplay
-// This function can switch display DOM
+Syntax: tgd(hideElement, showElement)
+full name: toggleDisplay
+This function can switch display DOM
