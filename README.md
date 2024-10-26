@@ -5,11 +5,17 @@
 ```css
 
 /*  */ 
-#hm {}
-#hamburger-menu {}
+#hmb {}
+#hamburger-menu-b {}
 /*  */
 #h {}
 #hidden {}
+/*  */
+.hmn {}
+.hamburger-menu-navbar {}
+/*  */
+.cp {}
+.current-page {}
 /*  */
 
 ```
