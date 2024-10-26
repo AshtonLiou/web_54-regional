@@ -1,3 +1,18 @@
+@media screen and (max-width: 1024px) {
+    .body-mask {
+        background: transparent !important;
+    }
+
+    header {
+        width: 100vw !important;
+        border-radius: 0 !important;
+
+        &>nav {
+            display: none;
+        }
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +20,22 @@
 }
 
 body {
+    height: 100vh;
+    font-family: "Poppins";
+    background: url("../img/img1.jpg") top / cover no-repeat fixed;
     overflow-x: hidden;
+}
+
+.body-mask {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, .3) 10%, rgba(0, 0, 0, .3) 90%, transparent);
+}
+
+a {
+    color: #222;
+    text-decoration: none;
 }
 
 img {
@@ -15,4 +45,73 @@ img {
 
 .h {
     display: none !important;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    width: 80vw;
+    height: 6em;
+    margin: auto;
+    border-radius: 0 0 10px 10px;
+    font-weight: 900;
+    background-color: #fff;
+
+    & a {
+        margin: 0 .5rem;
+        padding: 1em;
+        border-radius: 10px;
+        transition: .2s;
+
+        &:not(.cp):hover {
+            background-color: rgba(0, 0, 0, .1);
+        }
+    }
+
+    & .cp {
+        background-color: mediumaquamarine;
+    }
+
+    & label {
+        position: absolute;
+        right: 2em;
+        transform: rotate(90deg) scale(2);
+        transition: .2s;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    & #hmb:checked {
+        &~label {
+            transform: rotate(0) scale(2);
+        }
+
+        &~.hmn {
+            display: flex;
+            top: 4.6em;
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+
+    & .hmn {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 4em;
+        z-index: 100;
+        width: 100%;
+        padding: 1em;
+        border-radius: 0 0 20px 20px;
+        font-size: 1.2em;
+        text-align: center;
+        letter-spacing: .1rem;
+        background-color: #fff;
+        transform-origin: top;
+        transition: .2s;
+        opacity: 0;
+        pointer-events: none;
+    }
 }
