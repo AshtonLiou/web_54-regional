@@ -12,7 +12,9 @@
 ```
 ```javascript
 
+// 
 tgd(hideElement, showElement);
 toggleDisplay(hideElement, showElement);
+// 
 
 ```
