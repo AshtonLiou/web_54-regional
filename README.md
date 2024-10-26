@@ -3,7 +3,6 @@
 ## abbreviation description
 
 ```css
-
 /*  */ 
 #hmb {}
 #hamburger-menu-b {}
@@ -17,13 +16,27 @@
 .cp {}
 .current-page {}
 /*  */
-
 ```
 ```javascript
-
 // 
 tgd(hideElement, showElement);
 toggleDisplay(hideElement, showElement);
 // 
-
+```
+```php
+// 
+$n;
+$number;
+// 
+$i;
+$image;
+// 
+$b;
+$backgroundColor;
+// 
+$t;
+$textColor;
+// 
+$_SESSION["cn"];
+$_SESSION["captchaNumber"];
 ```
