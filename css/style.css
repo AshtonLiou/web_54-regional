@@ -5,7 +5,6 @@
 
     header {
         width: 100vw !important;
-        border-radius: 0 !important;
 
         &>nav {
             display: none;
@@ -20,17 +19,9 @@
 }
 
 body {
-    height: 100vh;
     font-family: "Poppins";
     background: url("../img/img1.jpg") top / cover no-repeat fixed;
     overflow-x: hidden;
-}
-
-.body-mask {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(to right, transparent, rgba(0, 0, 0, .3) 10%, rgba(0, 0, 0, .3) 90%, transparent);
 }
 
 a {
@@ -114,4 +105,13 @@ header {
         opacity: 0;
         pointer-events: none;
     }
+}
+
+.title-banner {
+    top: 1em;
+    height: auto;
+    padding: 1em;
+    border-radius: 10px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .4);
 }
