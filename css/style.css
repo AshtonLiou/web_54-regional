@@ -109,6 +109,7 @@ header {
 
 .title-banner {
     top: 1em;
+    width: 80vw !important;
     height: auto;
     padding: 1em;
     border-radius: 10px;
