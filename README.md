@@ -2,7 +2,7 @@
 
 ## Function abbreviation description
 
-```javascript
+### javascript
 
 // Syntax:
 tgd(hideElement, showElement) // toggleDisplay(hideElement, showElement)
