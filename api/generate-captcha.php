@@ -9,4 +9,4 @@ imagefill($i, 0, 0, $b);
 imagestring($i, 5, 32.5, 13, $n, $t);
 imagepng($i, "../img/captcha-image.png");
 imagedestroy($i);
-$_SESSION["cn"] = $n; 
+$_SESSION["cn"] = $n;
