@@ -8,5 +8,5 @@ $t = imagecolorallocate($i, 0, 0, 0);
 imagefill($i, 0, 0, $b);
 imagestring($i, 5, 32.5, 13, $n, $t);
 imagepng($i, "../img/captcha-image.png");
-imagedestroy($i);
+imagedestroy($i); 
 $_SESSION["cn"] = $n;
