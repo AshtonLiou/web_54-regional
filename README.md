@@ -4,17 +4,20 @@
 
 ```css
 /*  */ 
-#hmb {}
-#hamburger-menu-b {}
+#hmb
+#hamburger-menu-b
 /*  */
-#h {}
-#hidden {}
+#h
+#hidden
 /*  */
-.hmn {}
-.hamburger-menu-navbar {}
+.hmn
+.hamburger-menu-navbar
 /*  */
-.cp {}
-.current-page {}
+.cp
+.current-page
+/*  */
+#ci
+#captcha-image
 /*  */
 ```
 ```javascript
@@ -39,4 +42,5 @@ $textColor;
 // 
 $_SESSION["cn"];
 $_SESSION["captchaNumber"];
+// 
 ```
