@@ -125,6 +125,60 @@ main {
     background-color: rgba(255, 255, 255, .3);
 }
 
+.button-red,
+.button-green,
+.button-gray,
+.button-yellow {
+    font-size: 1em;
+    border-radius: 10px;
+    font-weight: 900;
+    padding: .5rem;
+    margin: .5em 0;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        background-size: 100% 100% !important;
+        color: #e1e1e1;
+        text-shadow: 3px 0 10px #e1e1e1;
+    }
+
+    &:active {
+        transform: scale(.9);
+    }
+}
+
+.button-red {
+    background: linear-gradient(red, red) 0 0 / 0 100% no-repeat;
+    color: red;
+    border: 5px solid red;
+}
+
+.button-green {
+    background: linear-gradient(mediumseagreen, mediumseagreen) 0 0 / 0 100% no-repeat;
+    color: mediumseagreen;
+    border: 5px solid mediumseagreen;
+}
+
+.button-gray {
+    background: linear-gradient(gray, gray) 0 0 / 0 100% no-repeat;
+    color: gray;
+    border: 5px solid gray;
+}
+
+.button-yellow {
+    background: linear-gradient(orange, orange) 0 0 / 0 100% no-repeat;
+    color: orange;
+    border: 5px solid orange;
+}
+
+.button-disabled {
+    pointer-events: none;
+    background-size: 100% 100%;
+    color: #e1e1e1;
+    opacity: .6;
+}
+
 form {
     display: grid;
     gap: 1em;
