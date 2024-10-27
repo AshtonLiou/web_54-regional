@@ -16,6 +16,21 @@
 .cp
 .current-page
 /*  */
+.btnr
+.button-red
+/*  */
+.btnmg /* mg => mediumseagreen */
+.button-green
+/*  */
+.btng
+.button-gray
+/*  */
+.btny
+.button-yellow
+/*  */
+.btnd
+.button-disabled
+/*  */
 #ci
 #captcha-image
 /*  */
