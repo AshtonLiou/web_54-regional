@@ -32,16 +32,27 @@
 .btnd
 .button-disabled
 /*  */
+.ff
+.form-float
+/*  */
 #ci
 #captcha-image
+/*  */
+#cc
+#captcha-container
 /*  */
 ```
 ### JAVASCRIPT
 ```javascript
 // 
-tgd(hideElement, showElement);
+tgd(hide, show);
 toggleDisplay(hideElement, showElement);
 // 
+rg();
+reGenerate();
+// 
+ls();
+loginSubmit();
 ```
 ### PHP
 ```php
@@ -60,5 +71,14 @@ $textColor;
 // 
 $_SESSION["cn"];
 $_SESSION["captchaNumber"];
+// 
+eq($conn, $query, $p = []);
+eq($connect, $query, $params = []);
+// 
+$ra;
+$resultAccount;
+// 
+$rp;
+$resultPassword;
 // 
 ```
