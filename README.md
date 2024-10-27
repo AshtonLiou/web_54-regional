@@ -2,6 +2,7 @@
 
 ## abbreviation description
 
+### CSS
 ```css
 /*  */ 
 #hmb
@@ -35,12 +36,14 @@
 #captcha-image
 /*  */
 ```
+### JAVASCRIPT
 ```javascript
 // 
 tgd(hideElement, showElement);
 toggleDisplay(hideElement, showElement);
 // 
 ```
+### PHP
 ```php
 // 
 $n;
