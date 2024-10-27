@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>快樂旅遊網</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/website-management.css">
     <script src="./js/main.js"></script>
     <script src="./js/website-management.js"></script>
 </head>
 
 <body>
+    <div class="body-mask"></div>
     <header>
         <a href="./visitor-message.html">
             <h1>快樂旅遊網</h1>
@@ -34,24 +36,26 @@
         <h1>網站管理</h1>
     </header>
     <main>
-        <form>
+        <form onsubmit="ls(event)">
             <h1>登入</h1>
-            <div class="form-float">
+            <div class="ff" style="margin: 1em 0;">
                 <input type="text" name="acc" placeholder=" " required>
                 <label>帳號</label>
             </div>
-            <div class="form-float">
+            <div class="ff" style="margin: 1em 0;">
                 <input type="password" name="pw" placeholder=" " required>
                 <label>密碼</label>
             </div>
-            <div>
-                <div class="form-float">
-                    <input type="text" name="captcha" placeholder=" " required>
+            <div id="cc">
+                <div class="ff">
+                    <input type="text" name="c" placeholder=" " required>
                     <label>圖片驗證碼</label>
                 </div>
                 <img src="./img/captcha-image.png" alt="" id="ci">
-                <button type="button" onclick="reGenerate()">驗證碼重新產生</button>
+                <button type="button" class="btng" onclick="rg()">驗證碼重新產生</button>
             </div>
+            <button type="reset" class="btng">重設</button>
+            <button type="submit" class="btnmg">送出</button>
         </form>
     </main>
 </body>

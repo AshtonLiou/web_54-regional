@@ -1,0 +1,17 @@
+#cc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: .5em;
+
+    &>*:not(#ci) {
+        flex: 1 1 auto;
+    }
+
+    &>#ci {
+        margin: 0 .5em;
+        border: 1px solid #000;
+        border-radius: 10px;
+    }
+}
