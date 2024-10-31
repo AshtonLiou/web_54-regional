@@ -22,6 +22,7 @@
             <a href="./visitor-booking.html">訪客訂房</a>
             <a href="./visitor-order.html">訪客訂餐</a>
             <a href="./website-management.html" class="cp">網站管理</a>
+            <button class="btnr pol h" onclick="logout()">登出</button>
         </nav>
         <input type="checkbox" id="hmb" class="h">
         <label for="hmb">|||</label>
@@ -30,13 +31,14 @@
             <a href="./visitor-booking.html">訪客訂房</a>
             <a href="./visitor-order.html">訪客訂餐</a>
             <a href="./website-management.html" class="cp">網站管理</a>
+            <button class="btnr pol h" onclick="logout()">登出</button>
         </nav>
     </header>
     <header class="title-banner">
         <h1>網站管理</h1>
     </header>
     <main>
-        <form onsubmit="ls(event)">
+        <form class="prl fv" onsubmit="logins(event)">
             <h1>登入</h1>
             <div class="ff" style="margin: 1em 0;">
                 <input type="text" name="acc" placeholder=" " required>
@@ -57,6 +59,11 @@
             <button type="reset" class="btng">重設</button>
             <button type="submit" class="btnmg">送出</button>
         </form>
+        <form class="prl sv h">
+            <div id="svg"></div>
+            <button type="button" class="btnmg" onclick="vsv()">確認</button>
+        </form>
+        <div class="pol h">This is website management section</div>
     </main>
 </body>
 

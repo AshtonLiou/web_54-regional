@@ -15,3 +15,41 @@
         border-radius: 10px;
     }
 }
+
+#svg {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .5em;
+    margin: 1em auto;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font: 2em "Papyrus";
+    font-weight: 900;
+    background-color: whitesmoke;
+    cursor: grab;
+    transition: .3s;
+}
+
+.dragging {
+    transform: scale(.8);
+    opacity: .5;
+}
+
+.dragover {
+    color: #eee;
+    background-color: darkgray;
+    border: none;
+    transform: scale(.9);
+}
+
+.changing {
+    background-color: mediumseagreen;
+}
