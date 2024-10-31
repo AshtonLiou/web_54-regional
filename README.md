@@ -41,6 +41,21 @@
 #cc
 #captcha-container
 /*  */
+.prl
+.pre-login
+/*  */
+.pol
+.post-login
+/*  */
+.fv
+.first-verification
+/*  */
+.sv
+.second-verification
+/*  */
+#svg
+#second-verification-grid
+/*  */
 ```
 ### JAVASCRIPT
 ```javascript
@@ -51,8 +66,27 @@ toggleDisplay(hideElement, showElement);
 rg();
 reGenerate();
 // 
-ls();
+logins();
 loginSubmit();
+// 
+gg();
+generateGrid();
+// 
+vsv();
+verifySecondVerification();
+// 
+var e;
+var event;
+// 
+var n;
+var number;
+// 
+var c;
+var cell;
+// 
+var d;
+var dragged;
+// 
 ```
 ### PHP
 ```php
