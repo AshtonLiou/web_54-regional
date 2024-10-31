@@ -20,8 +20,8 @@
     width: 80%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: .5em;
-    margin: 1em auto;
+    gap: 2%;
+    margin: 2em auto;
 }
 
 .cell {

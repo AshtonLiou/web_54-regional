@@ -70,6 +70,7 @@ const vsv = () => {
         localStorage.setItem("isLogin", "true")
         tgd(".prl", ".pol")
         alert("登入成功")
+        document.getElementById("svg").replaceChildren()
     } else {
         alert("順序錯誤，請重新排列！")
     }
