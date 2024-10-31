@@ -56,6 +56,9 @@
 #svg
 #second-verification-grid
 /*  */
+#vos
+#visitor-order-section
+/*  */
 ```
 ### JAVASCRIPT
 ```javascript
@@ -75,6 +78,20 @@ generateGrid();
 vsv();
 verifySecondVerification();
 // 
+ci();
+clickImage();
+// 
+cm();
+closeModal();
+// 
+rp();
+reduceImageOpacity()
+// 
+rep();
+replyImageOpacity();
+// 
+ip();
+increaseImageOpacity();
 var e;
 var event;
 // 
