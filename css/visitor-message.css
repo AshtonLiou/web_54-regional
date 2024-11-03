@@ -1,0 +1,61 @@
+form {
+    width: max(80%, 15em);
+}
+
+section.ams>form,
+section.ems>form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+
+    &>.ff:has(textarea) {
+        grid-column: 2;
+
+        &>textarea {
+            resize: none;
+        }
+    }
+
+    &>button {
+        width: 100%;
+    }
+}
+
+section.ams>form>.ff:has(textarea) {
+    grid-row: 1 / span 5;
+}
+
+section.ems>form>.ff:has(textarea) {
+    grid-row: 1 / span 3;
+}
+
+section.mls {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    max-height: 60vh;
+    overflow: auto;
+    margin: auto;
+    padding: 2em 0;
+    border-radius: 20px 10px 10px 20px;
+    background: linear-gradient(to right, #eee, #fff);
+}
+
+table {
+    width: 90%;
+    margin: 2em 0;
+    border-radius: 10px;
+    box-shadow: 0 0 0 3px gray;
+    background-color: #fff;
+
+    & td {
+        padding: 1em;
+    }
+
+    & img {
+        width: 300px;
+        border-radius: 10px;
+        box-shadow: .2rem .2rem 5px rgba(0, 0, 0, .3);
+    }
+}

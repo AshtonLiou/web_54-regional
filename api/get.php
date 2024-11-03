@@ -8,16 +8,24 @@ function eq($conn, $query, $p = []) {
     return $stmt->fetchAll(2);
 }
 switch ($_GET["m"]) {
-    case "ls":
+    case "vl":
         $ra = eq($conn, "SELECT * FROM `admin`
-                         WHERE `acc` = ?",
-                         [$_GET["acc"]]);
+                         WHERE `account` = ?",
+                         [$_GET["account"]]);
         $rp = eq($conn, "SELECT * FROM `admin`
-                         WHERE `pw` = ?",
-                         [$_GET["pw"]]);
-        echo $_SESSION["cn"] != $_GET["c"] ? "驗證碼錯誤" :
+                         WHERE `password` = ?",
+                         [$_GET["password"]]);
+        echo $_SESSION["cn"] != $_GET["captcha"] ? "驗證碼錯誤" :
             (empty($ra) && empty($rp) ? "帳號和密碼錯誤" :
             (empty($ra) ? "帳號錯誤" :
             (empty($rp) ? "密碼錯誤" : 1)));
+        break;
+
+    case "gmd":
+        $r = eq($conn, "SELECT * FROM `message`
+                        ORDER BY
+                        CASE WHEN `pin` = true THEN 0 ELSE 1 END,
+                        `id` DESC");
+        echo json_encode($r);
         break;
 }
