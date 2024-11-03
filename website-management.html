@@ -34,23 +34,23 @@
             <button class="btnr pol h" onclick="logout()">登出</button>
         </nav>
     </header>
-    <header class="title-banner">
+    <header id="title-banner">
         <h1>網站管理</h1>
     </header>
     <main>
-        <form class="prl fv" onsubmit="logins(event)">
+        <form class="prl fv" onsubmit="vl(event)">
             <h1>登入</h1>
             <div class="ff" style="margin: 1em 0;">
-                <input type="text" name="acc" placeholder=" " required>
+                <input type="text" name="account" placeholder=" " required>
                 <label>帳號</label>
             </div>
             <div class="ff" style="margin: 1em 0;">
-                <input type="password" name="pw" placeholder=" " required>
+                <input type="password" name="password" placeholder=" " required>
                 <label>密碼</label>
             </div>
             <div id="cc">
                 <div class="ff">
-                    <input type="text" name="c" placeholder=" " required>
+                    <input type="text" name="captcha" placeholder=" " required>
                     <label>圖片驗證碼</label>
                 </div>
                 <img src="./img/captcha-image.png" alt="" id="ci">
