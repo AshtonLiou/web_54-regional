@@ -6,9 +6,9 @@ const rg = () => {
     fetch("./api/generate-captcha.php")
         .then(r => document.getElementById("ci").src = `./img/captcha-image.png?${new Date().getTime()}`)
 }
-const logins = (e) => {
+const vl = (e) => {
     e.preventDefault()
-    fetch(`./api/get.php?m=ls&${new URLSearchParams(new FormData(e.target))}`)
+    fetch(`./api/get.php?m=vl&${new URLSearchParams(new FormData(e.target))}`)
         .then(r => r.text())
         .then(text => {
             if (text != 1) return alert(text)
@@ -42,7 +42,6 @@ const drag = (e) => {
     d = e.target
     d.classList.add("dragging")
     e.dataTransfer.setData("text/plain", d.textContent)
-    e.dataTransfer.setData("value", d.dataset.value)
 }
 const allowDrop = (e) => {
     e.preventDefault()
@@ -53,8 +52,6 @@ const drop = (e) => {
     if (d == e.target) return
     d.textContent = e.target.textContent
     e.target.textContent = e.dataTransfer.getData("text/plain")
-    d.dataset.value = e.target.dataset.value
-    e.target.dataset.value = e.dataTransfer.getData("value")
     e.target.classList.remove("dragover")
     e.target.classList.add("changing")
     d.classList.add("changing")
@@ -62,11 +59,9 @@ const drop = (e) => {
         e.target.classList.remove("changing")
         d.classList.remove("changing")
     }, 200)
-    console.log(document.querySelectorAll(".cell"))
-    console.log([...document.querySelectorAll(".cell")])
 }
 const vsv = () => {
-    if (JSON.stringify([...document.querySelectorAll(".cell")].map(cell => Number(cell.dataset.value))) == JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9])) {
+    if (JSON.stringify([...document.querySelectorAll(".cell")].map(cell => Number(cell.textContent))) == JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9])) {
         localStorage.setItem("isLogin", "true")
         tgd(".prl", ".pol")
         alert("登入成功")
