@@ -111,6 +111,9 @@ var deleteButton;
 var md;
 var matchedData;
 // 
+var confd;
+var confiremDelete;
+// 
 tgd(hide, show);
 toggleDisplay(hideElement, showElement);
 // 
@@ -210,5 +213,14 @@ switch ($_POST["mode"]) {}
 // 
 case "am":
 case "addVisitorMessage":
+// 
+case "em":
+case "editVisitorMessage":
+// 
+case "udm":
+case "userDeleteVisitorMessage":
+// 
+case "dm":
+case "deleteVisitorMessage";
 // 
 ```
