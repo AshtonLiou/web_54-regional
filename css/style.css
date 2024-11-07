@@ -114,7 +114,7 @@ header {
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 4.6em;
+        top: 4.5em;
         z-index: 100;
         width: 100%;
         clip-path: inset(0 0 100% 0);
