@@ -68,6 +68,9 @@
 #ems
 #edit-visitor-message-section
 /*  */
+.bm
+.visitor-booking-management
+/*  */
 ```
 ### JAVASCRIPT
 ```javascript
@@ -99,14 +102,29 @@ var formData;
 var ff;
 var formFloat;
 // 
-var r;
+var r; // This r is for table
 var row;
+// 
+var r;
+var reply; // This r is for message
+// 
+var confr;
+var confReply;
 // 
 var ebtn;
 var editButton;
 // 
 var dbtn;
 var deleteButton;
+// 
+var pbtn;
+var pinButton;
+// 
+var hbtn;
+var hiddenButton;
+// 
+var rbtn;
+var replyButton;
 // 
 var md;
 var matchedData;
@@ -136,7 +154,7 @@ cm();
 closeModal();
 // 
 rp();
-reduceImageOpacity()
+reduceImageOpacity();
 // 
 rep();
 replyImageOpacity();
@@ -157,13 +175,28 @@ emd(c.id);
 editVisitorMessageData(cell.id);
 //  
 em(event);
-editVisitorMessage(event)
+editVisitorMessage(event);
 // 
 emdr(md.id);
 editVisitorMessageDataReset(matchedData.id);
 // 
 dm(c.id);
-deleteVisitorMessage(cell.id)
+deleteVisitorMessage(cell.id);
+// 
+pm(c.id);
+pinVisitorMessage(cell.id);
+// 
+unpm(c.id);
+unPinVisitorMessage(cell.id);
+// 
+hm(c.id);
+hiddenVisitorMessage(cell.id);
+// 
+unhm(c.id);
+unHideVisitorMessage(cell.id);
+// 
+rm(c.id);
+replyVisitorMessage(cell.id);
 // 
 ```
 ### PHP
