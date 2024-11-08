@@ -58,6 +58,7 @@ const cr = (table, cs) => {
                     dbtn.onclick = () => dm(c.id)
                     td.append(ff, ebtn, dbtn)
                 }
+                if (c.pin) td.classList.add("pin")
                 td.style.width = "12em"
                 td.style.borderLeft = "3px solid gray"
                 td.style.borderRadius = "0 10px 10px 0"
@@ -76,6 +77,13 @@ const cr = (table, cs) => {
                 td.style.borderTop = "3px solid gray"
                 td.style.borderLeft = "3px solid gray"
                 break;
+            case "reply":
+                td.textContent = `管理者回應 : ${c.content}`
+                td.style.borderTop = "3px solid gray"
+                td.style.borderRadius = "0 0 10px 10px"
+                td.style.backgroundColor = "whitesmoke"
+                td.setAttribute("colspan", 3)
+                break;
         }
         tr.appendChild(td)
     })
@@ -91,9 +99,9 @@ const gmd = () => {
                 let table = document.createElement("table")
                 table.cellSpacing = 0
                 if (r["delete-time"]) {
-                    cr(table, [{ m: "header", name: r.name }, { m: "content", content: `發表於 ${r["issue-time"].replace(/-/g, "/")} · 刪除於 ${r["delete-time"].replace(/-/g, "/")}` }, { m: "active", deleted: true }])
+                    cr(table, [{ m: "header", name: r.name }, { m: "content", content: `發表於 ${r["issue-time"].replace(/-/g, "/")} · 刪除於 ${r["delete-time"].replace(/-/g, "/")}` }, { m: "active", deleted: true, pin: r.pin }])
                 } else {
-                    cr(table, [{ m: "header", image: r.image, name: r.name }, { m: "content", content: r.content }, { m: "active", id: r.id }])
+                    cr(table, [{ m: "header", image: r.image, name: r.name }, { m: "content", content: r.content }, { m: "active", id: r.id, pin: r.pin }])
                     let time = `發表於 ${r["issue-time"].replace(/-/g, "/")}`
                     if (r["edit-time"]) time += ` · 修改於 ${r["edit-time"].replace(/-/g, "/")}`
                     cr(table, [{ m: "contact", content: time }])
@@ -103,6 +111,7 @@ const gmd = () => {
                         ? `${email}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${telephone}`
                         : email || telephone
                     if (emailAndTelephone) cr(table, [{ m: "contact", content: emailAndTelephone }])
+                    if (r.reply) cr(table, [{ m: "reply", content: r.reply }])
                 }
                 document.querySelector("section.mls").appendChild(table)
             })
@@ -112,7 +121,7 @@ const am = (e) => {
     e.preventDefault()
     if (!/@.*\.|\..*@/.test(e.target.email.value)) e.target.email.setCustomValidity("E-mail需包含「@」及至少1個「.」")
     if (/[^0-9-]/.test(e.target.telephone.value)) e.target.telephone.setCustomValidity("連絡電話只能包含數字及「-」")
-    if (!/[a-z0-9]{3}/.test(e.target["message-serial-number"].value)) e.target["message-serial-number"].setCustomValidity("留言序號只能由3位數字及小寫英文字母組成")
+    if (!/[a-z0-9]{3}/.test(e.target["message-serial-number"].value)) e.target["message-serial-number"].setCustomValidity("留言序號只能有3位由數字及小寫英文字母組成")
     if (!e.target.checkValidity()) return
     let reader = new FileReader()
     reader.readAsDataURL(e.target.image.files[0])
@@ -137,6 +146,7 @@ const emd = (id) => {
         .then(r => r.json())
         .then(data => {
             let md = data.find(r => r.id == id)
+            if (document.getElementsByName(id)[0].value == "") return alert("請輸入留言編號")
             if (md["message-serial-number"] != document.getElementsByName(id)[0].value) return alert("留言編號錯誤")
             document.getElementsByName(id)[0].value = ""
             tgd(".mls", ".ems")
@@ -189,6 +199,7 @@ const dm = (id) => {
         .then(r => r.json())
         .then(data => {
             let md = data.find(r => r.id == id)
+            if (document.getElementsByName(id)[0].value == "") return alert("請輸入留言編號")
             if (md["message-serial-number"] != document.getElementsByName(id)[0].value) return alert("留言編號錯誤")
             document.getElementsByName(id)[0].value = ""
             let confd = confirm("確認是否刪除訪客留言")

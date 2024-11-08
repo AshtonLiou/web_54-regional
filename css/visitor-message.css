@@ -50,6 +50,7 @@ table {
     background-color: #fff;
 
     & td {
+        position: relative;
         padding: 1em;
     }
 
@@ -58,4 +59,20 @@ table {
         border-radius: 10px;
         box-shadow: .2rem .2rem 5px rgba(0, 0, 0, .3);
     }
+}
+
+.pin::before {
+    content: "pin";
+    position: absolute;
+    top: -.85em;
+    right: -.85em;
+    width: 1.7em;
+    height: 1.7em;
+    padding: .1em;
+    border-radius: 50%;
+    box-shadow: 0 0 0 .1em #fff,
+        0 0 0 .2em orange;
+    color: #fff;
+    background-color: orange;
+    transform: rotate(15deg);
 }

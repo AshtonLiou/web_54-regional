@@ -20,12 +20,14 @@ switch ($_GET["m"]) {
             (empty($ra) ? "帳號錯誤" :
             (empty($rp) ? "密碼錯誤" : 1)));
         break;
-
     case "gmd":
         $r = eq($conn, "SELECT * FROM `message`
                         ORDER BY
-                        CASE WHEN `pin` = true THEN 0 ELSE 1 END,
-                        `id` DESC");
+                            CASE
+                                WHEN `pin` = true THEN 0
+                                ELSE 1
+                            END,
+                            `id` DESC");
         echo json_encode($r);
         break;
 }
