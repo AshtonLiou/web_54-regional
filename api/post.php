@@ -6,7 +6,7 @@ function ec($conn, $query, $p = []) {
 }
 switch ($_POST["m"]) {
     case "am":
-        ec($conn, "INSERT INTO `message`(`name`, `email`, `telephone`, `message-serial-number`, `content`, `image`)
+        ec($conn, "INSERT INTO `message`(`name`, `email`, `telephone`, `message_serial_number`, `content`, `image`)
                    VALUES (?, ?, ?, ?, ?, ?)",
                    [$_POST["name"], $_POST["email"], $_POST["telephone"], $_POST["message-serial-number"], $_POST["content"], $_POST["image"]]);
         break;
@@ -14,13 +14,13 @@ switch ($_POST["m"]) {
         $showEmail = $_POST["show-email"] ?? NULL;
         $showTelephone = $_POST["show-telephone"] ?? NULL;
         ec($conn, "UPDATE `message`
-                   SET `name` = ?, `email` = ?, `telephone` = ?, `content` = ?, `edit-time` = NOW(), `show-email` = ?, `show-telephone` = ?
+                   SET `name` = ?, `email` = ?, `telephone` = ?, `content` = ?, `edit_time` = NOW(), `show_email` = ?, `show_telephone` = ?
                    WHERE `id` = ?",
                    [$_POST["name"], $_POST["email"], $_POST["telephone"], $_POST["content"], $showEmail, $showTelephone, $_POST["id"]]);
         break;
     case "udm":
         ec($conn, "UPDATE `message`
-                   SET `delete-time` = NOW()
+                   SET `delete_time` = NOW()
                    WHERE `id` = ?",
                    [$_POST["id"]]);
         break;

@@ -81,7 +81,7 @@ const cr = (table, cs) => {
                 td.textContent = `管理者回應 : ${c.content}`
                 td.style.borderTop = "3px solid gray"
                 td.style.borderRadius = "0 0 10px 10px"
-                td.style.backgroundColor = "whitesmoke"
+                td.style.backgroundColor = "linen"
                 td.setAttribute("colspan", 3)
                 break;
         }
@@ -98,15 +98,15 @@ const gmd = () => {
                 if (r.hide != null) return
                 let table = document.createElement("table")
                 table.cellSpacing = 0
-                if (r["delete-time"]) {
-                    cr(table, [{ m: "header", name: r.name }, { m: "content", content: `發表於 ${r["issue-time"].replace(/-/g, "/")} · 刪除於 ${r["delete-time"].replace(/-/g, "/")}` }, { m: "active", deleted: true, pin: r.pin }])
+                if (r["delete_time"]) {
+                    cr(table, [{ m: "header", name: r.name }, { m: "content", content: `發表於 ${r["issue_time"].replace(/-/g, "/")} · 刪除於 ${r["delete_time"].replace(/-/g, "/")}` }, { m: "active", deleted: true, pin: r.pin }])
                 } else {
                     cr(table, [{ m: "header", image: r.image, name: r.name }, { m: "content", content: r.content }, { m: "active", id: r.id, pin: r.pin }])
-                    let time = `發表於 ${r["issue-time"].replace(/-/g, "/")}`
-                    if (r["edit-time"]) time += ` · 修改於 ${r["edit-time"].replace(/-/g, "/")}`
+                    let time = `發表於 ${r["issue_time"].replace(/-/g, "/")}`
+                    if (r["edit_time"]) time += ` · 修改於 ${r["edit_time"].replace(/-/g, "/")}`
                     cr(table, [{ m: "contact", content: time }])
-                    let email = r["show-email"] == "on" ? `E-mail : ${r.email}` : ""
-                    let telephone = r["show-telephone"] == "on" ? `電話 : ${r.telephone}` : ""
+                    let email = r["show_email"] == "on" ? `E-mail : ${r.email}` : ""
+                    let telephone = r["show_telephone"] == "on" ? `電話 : ${r.telephone}` : ""
                     let emailAndTelephone = email && telephone
                         ? `${email}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${telephone}`
                         : email || telephone
@@ -147,7 +147,7 @@ const emd = (id) => {
         .then(data => {
             let md = data.find(r => r.id == id)
             if (document.getElementsByName(id)[0].value == "") return alert("請輸入留言編號")
-            if (md["message-serial-number"] != document.getElementsByName(id)[0].value) return alert("留言編號錯誤")
+            if (md["message_serial_number"] != document.getElementsByName(id)[0].value) return alert("留言編號錯誤")
             document.getElementsByName(id)[0].value = ""
             tgd(".mls", ".ems")
             let e = document.querySelector("section.ems>form")
@@ -155,8 +155,8 @@ const emd = (id) => {
             e.email.value = md.email
             e.telephone.value = md.telephone
             e.content.value = md.content
-            e["show-email"].checked = md["show-email"]
-            e["show-telephone"].checked = md["show-telephone"]
+            e["show-email"].checked = md["show_email"]
+            e["show-telephone"].checked = md["show_telephone"]
             e.emdr.onclick = () => emdr(md.id)
             e.onsubmit = () => em(event, md.id)
         })
@@ -171,8 +171,8 @@ const emdr = (id) => {
             e.email.value = md.email
             e.telephone.value = md.telephone
             e.content.value = md.content
-            e["show-email"].checked = md["show-email"]
-            e["show-telephone"].checked = md["show-telephone"]
+            e["show-email"].checked = md["show_email"]
+            e["show-telephone"].checked = md["show_telephone"]
             e.emdr.onclick = () => emdr(md.id)
         })
 }
@@ -200,7 +200,7 @@ const dm = (id) => {
         .then(data => {
             let md = data.find(r => r.id == id)
             if (document.getElementsByName(id)[0].value == "") return alert("請輸入留言編號")
-            if (md["message-serial-number"] != document.getElementsByName(id)[0].value) return alert("留言編號錯誤")
+            if (md["message_serial_number"] != document.getElementsByName(id)[0].value) return alert("留言編號錯誤")
             document.getElementsByName(id)[0].value = ""
             let confd = confirm("確認是否刪除訪客留言")
             if (!confd) return alert("已取消刪除訪客留言")

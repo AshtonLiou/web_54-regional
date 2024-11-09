@@ -30,4 +30,11 @@ switch ($_GET["m"]) {
                             `id` DESC");
         echo json_encode($r);
         break;
+    case "gc":
+        $r = eq($conn, "SELECT `room` FROM `booking-date`
+                        WHERE `date` = ?",
+                        [$_GET["date"]]);
+        $lc = array_map(fn($room) => substr($room, -1), array_column($r, "room"));
+        echo json_encode(array_values(array_diff(range(1, 8), $lc)));
+        break;
 }

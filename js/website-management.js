@@ -203,7 +203,7 @@ const cr = (table, cs) => {
                 td.textContent = `管理者回應 : ${c.content}`
                 td.style.borderTop = "3px solid gray"
                 td.style.borderRadius = "0 0 10px 10px"
-                td.style.backgroundColor = "whitesmoke"
+                td.style.backgroundColor = "linen"
                 td.setAttribute("colspan", 3)
                 break;
         }
@@ -219,16 +219,16 @@ const gmd = () => {
             data.forEach(r => {
                 let table = document.createElement("table")
                 table.cellSpacing = 0
-                if (r["delete-time"]) {
+                if (r["delete_time"]) {
                     cr(table, [{ m: "header", image: r.image, name: r.name }, { m: "content", content: r.content }, { m: "active", id: r.id, pin: r.pin, hide: r.hide, deleted: true }])
                 } else {
                     cr(table, [{ m: "header", image: r.image, name: r.name }, { m: "content", content: r.content }, { m: "active", id: r.id, pin: r.pin, hide: r.hide }])
                 }
-                let time = `發表於 ${r["issue-time"].replace(/-/g, "/")}`
-                if (r["edit-time"]) time += ` · 修改於 ${r["edit-time"].replace(/-/g, "/")}`
+                let time = `發表於 ${r["issue_time"].replace(/-/g, "/")}`
+                if (r["edit_time"]) time += ` · 修改於 ${r["edit_time"].replace(/-/g, "/")}`
                 cr(table, [{ m: "contact", content: time }])
-                let email = r["show-email"] == "on" ? `E-mail : ${r.email}` : ""
-                let telephone = r["show-telephone"] == "on" ? `電話 : ${r.telephone}` : ""
+                let email = r["show_email"] == "on" ? `E-mail : ${r.email}` : ""
+                let telephone = r["show_telephone"] == "on" ? `電話 : ${r.telephone}` : ""
                 let emailAndTelephone = email && telephone
                     ? `${email}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${telephone}`
                     : email || telephone
@@ -249,8 +249,8 @@ const emd = (id) => {
             e.email.value = md.email
             e.telephone.value = md.telephone
             e.content.value = md.content
-            e["show-email"].checked = md["show-email"]
-            e["show-telephone"].checked = md["show-telephone"]
+            e["show-email"].checked = md["show_email"]
+            e["show-telephone"].checked = md["show_telephone"]
             e.emdr.onclick = () => emdr(md.id)
             e.onsubmit = () => em(event, md.id)
         })
@@ -265,8 +265,8 @@ const emdr = (id) => {
             e.email.value = md.email
             e.telephone.value = md.telephone
             e.content.value = md.content
-            e["show-email"].checked = md["show-email"]
-            e["show-telephone"].checked = md["show-telephone"]
+            e["show-email"].checked = md["show_email"]
+            e["show-telephone"].checked = md["show_telephone"]
             e.emdr.onclick = () => emdr(md.id)
         })
 }

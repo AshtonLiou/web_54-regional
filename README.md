@@ -71,6 +71,12 @@
 .bm
 .visitor-booking-management
 /*  */
+.sd
+.select-date
+/*  */
+#cal
+#calendar
+/*  */
 ```
 ### JAVASCRIPT
 ```javascript
@@ -93,8 +99,11 @@ var cells;
 var m;
 var mode;
 // 
-var d;
+var d; // This d is for verification
 var dragged;
+// 
+var d; // This d is for date
+var date;
 // 
 var fd;
 var formData;
@@ -131,6 +140,24 @@ var matchedData;
 // 
 var confd;
 var confiremDelete;
+// 
+var y;
+var year;
+// 
+var m;
+var month;
+// 
+var sdd;
+var selectedDate;
+// 
+var cal;
+var calendar;
+// 
+var fd;
+var firstDay;
+// 
+var td;
+var totalDay;
 // 
 tgd(hide, show);
 toggleDisplay(hideElement, showElement);
@@ -198,6 +225,9 @@ unHideVisitorMessage(cell.id);
 rm(c.id);
 replyVisitorMessage(cell.id);
 // 
+gc(y, m)
+generateCalendar(currentYear, currentMonth)
+// 
 ```
 ### PHP
 ```php
@@ -225,6 +255,9 @@ $resultAccount;
 // 
 $rp;
 $resultPassword;
+// 
+$lc;
+$lastChars;
 // 
 eq($conn, $query, $p = []);
 executeQuery($connect, $query, $params = []);

@@ -218,7 +218,6 @@ main {
 }
 
 form {
-    width: max(40vw, 15em);
     margin: auto;
     padding: 3em;
     border-radius: 20px;
