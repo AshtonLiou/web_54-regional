@@ -121,7 +121,7 @@ const am = (e) => {
     e.preventDefault()
     if (!/@.*\.|\..*@/.test(e.target.email.value)) e.target.email.setCustomValidity("E-mail需包含「@」及至少1個「.」")
     if (/[^0-9-]/.test(e.target.telephone.value)) e.target.telephone.setCustomValidity("連絡電話只能包含數字及「-」")
-    if (!/[a-z0-9]{3}/.test(e.target["message-serial-number"].value)) e.target["message-serial-number"].setCustomValidity("留言序號只能有3位由數字及小寫英文字母組成")
+    if (!/^(?=.*[a-z])(?=.*[0-9])[a-z0-9]{3}$/.test(e.target["message-serial-number"].value)) e.target["message-serial-number"].setCustomValidity("留言序號只能有3位由數字及小寫英文字母組成")
     if (!e.target.checkValidity()) return
     let reader = new FileReader()
     reader.readAsDataURL(e.target.image.files[0])
